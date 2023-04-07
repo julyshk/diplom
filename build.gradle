@@ -55,11 +55,8 @@ dependencies {
 compileJava{
     options.encoding="UTF-8"
 }
-compileTestJava{
-    options.encoding="UTF-8"
-}
 
-tasks.withType(Test) {
+/*tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
 
@@ -69,5 +66,25 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+}*/
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
+
+test {
+    useJUnitPlatform()
+}
+task remote_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("remote")
+    }
+}
+
+task remote_properties_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("remote_properties")
+    }
+}
+
 

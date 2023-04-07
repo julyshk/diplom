@@ -15,9 +15,9 @@ public class TestBase {
     HomepagePage homepagePage = new HomepagePage();
     SearchCarPage searchCarPage = new SearchCarPage();
 
+
     @BeforeAll
     static void beforeAll() {
-
         setConfig();
     }
 
@@ -25,6 +25,7 @@ public class TestBase {
     @BeforeEach
     void addListener(){
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        homepagePage.openPage();
     }
 
     @AfterEach

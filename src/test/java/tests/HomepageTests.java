@@ -3,13 +3,9 @@ package tests;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import static io.qameta.allure.Allure.step;
 
 public class HomepageTests extends TestBase {
@@ -18,9 +14,8 @@ public class HomepageTests extends TestBase {
     @Owner("shkrebayv")
     @DisplayName("Проверка списка популярных марок автомобилей")
     void checkForSectionServicesForApplicants() {
-
-        step("Открыть сайт drom.ru", () -> {
-            homepagePage.openPage();
+        step("Установить регион Москва", () -> {
+            homepagePage.homeRegionChange();
         });
         step("Проверить список популярных марок автомобилей", () -> {
             homepagePage.carBrandCheck(homepagePage.audi);
@@ -49,9 +44,6 @@ public class HomepageTests extends TestBase {
     @Owner("shkrebayv")
     @DisplayName("Классификация автомобилей в секции 'Новые автомобили от дилеров'")
     void checkForSectionEducationAndConsultations() {
-        step("Открыть сайт drom.ru", () -> {
-            homepagePage.openPage();
-        });
         step("Отображение раздела автомобилей эконом-класса", () -> {
             homepagePage.classificationCarCheck(homepagePage.sectionCarEconom, homepagePage.carEconom);
         });
@@ -66,21 +58,30 @@ public class HomepageTests extends TestBase {
         });
     }
 
-    @CsvSource({
-            "Автомобили, Продажа автомобилей",
-            "Спецтехника, Спецтехника и грузовики - все объявления о продаже и покупке",
-            "Запчасти, товары и услуги для авто",
-            "Отзывы, Отзывы об автомобилях",
-            "Каталог, Каталог автомобилей",
-            "Шины, Купить шины"
-    })
-
     @ParameterizedTest(name = "При переходе в раздел {0} должен быть заголовок {1}")
+    @CsvFileSource(resources = "/csv/menuChapter.csv")
     public void MainMenuCheck(String chapter, String header) {
-        homepagePage.openPage();
-        homepagePage.goToChapter(homepagePage.chapters, chapter);
-        homepagePage.verifyHeaderForChapter(header);
+        step("Перейти в раздел меню", () -> {
+            homepagePage.goToChapter(homepagePage.chapters, chapter);
+        });
+        step("Проверить заголовок страницы", () -> {
+            homepagePage.verifyHeaderForChapter(header);
+        });
 
+    }
+
+    @ParameterizedTest(name = "При выборе марки {0} в поиске отображаются авто марки {1}")
+    @CsvFileSource(resources = "/csv/carBrands.csv")
+    public void searchCarByBrand(String searchBrand, String carBrand) {
+        step("Установить регион Москва", () -> {
+            homepagePage.homeRegionChange();
+        });
+        step("Нажать на марку автомобиля на главном экране в секции 'Поиск объявлений'", () -> {
+            homepagePage.goToChapter(homepagePage.brands, searchBrand);
+        });
+        step("Проверить, что все автомобили на странице выбранной марки", () -> {
+            homepagePage.verifySearchCarByBrand(homepagePage.foundCarName, carBrand);
+        });
     }
 
 }

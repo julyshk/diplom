@@ -1,12 +1,9 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class HomepagePage {
@@ -32,17 +29,23 @@ public class HomepagePage {
             carEconom = "Эконом",
             carComfort = "Комфорт",
             carBusiness = "Бизнес",
-            carPremium = "Премиум";
+            carPremium = "Премиум",
+            regionMoscow = "Москва";
 
     public SelenideElement
             sectionAdvertisingSearch = $("div[data-ftid=component_cars-list]"),
             sectionCarEconom = $("div[data-ftid=home-auto-block_items] a:nth-child(1)"),
             sectionCarComfort = $("div[data-ftid=home-auto-block_items] a:nth-child(2)"),
             sectionCarBusiness = $("div[data-ftid=home-auto-block_items] a:nth-child(3)"),
-            sectionCarPremium = $("div[data-ftid=home-auto-block_items] a:nth-child(4)");
+            sectionCarPremium = $("div[data-ftid=home-auto-block_items] a:nth-child(4)"),
+            homeRegionChange = $("a[data-ga-stats-name=HomeRegionChange]"),
+            homepagesButton = $("a[href='https://www.drom.ru']");
 
     public ElementsCollection
-            chapters = $$("[data-ftid=component_header_main-menu-item]");
+            chapters = $$("[data-ftid=component_header_main-menu-item]"),
+            brands = $$("a[data-ftid=component_cars-list-item_hidden-link]"),
+            foundCarName = $$("span[data-ftid=bull_title]"),
+            regionSearch = $$("a.b-link.regionLink");
 
 
 
@@ -52,22 +55,29 @@ public class HomepagePage {
         return this;
     }
 
+    public HomepagePage homeRegionChange() {
+        homeRegionChange.click();
+        regionSearch.find(text(regionMoscow)).click();
+        homepagesButton.click();
+
+
+        return this;
+    }
+
     public HomepagePage carBrandCheck(String carBrand) {
-        $(sectionAdvertisingSearch).shouldHave(text(carBrand));
-        //$("div[data-ftid=component_cars-list]").shouldHave(text("Audi"));
+        sectionAdvertisingSearch.shouldHave(text(carBrand));
 
         return this;
     }
 
     public HomepagePage classificationCarCheck(SelenideElement section, String carClassification) {
-        $(section).shouldHave(text(carClassification));
-       // $("div[data-ftid=home-auto-block_items] a:nth-child(1)").shouldHave(text("Эконом"));
+        section.shouldHave(text(carClassification));
 
         return this;
     }
 
     public HomepagePage goToChapter(ElementsCollection chapters, String chapter) {
-        $$("[data-ftid=component_header_main-menu-item]").find((text(chapter))).click();
+        chapters.find((text(chapter))).click();
         return this;
     }
 
@@ -76,4 +86,12 @@ public class HomepagePage {
 
         return this;
     }
+
+    public HomepagePage verifySearchCarByBrand(ElementsCollection foundCarName, String carBrand) {
+        foundCarName.filterBy(text(carBrand)).shouldHave(size(20));
+
+        return this;
+    }
+
+
 }

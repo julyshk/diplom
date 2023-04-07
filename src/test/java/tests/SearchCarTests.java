@@ -1,16 +1,8 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -20,14 +12,11 @@ public class SearchCarTests extends TestBase{
     @Owner("shkrebayv")
     @DisplayName("Проверка формы поиска автомобиля")
     void formForSearchCarVerify() {
-        step("Открыть сайт drom.ru", () -> {
-            searchCarPage.openPage();
-        });
         step("Нажать 'Поиск объявлений'", () -> {
             searchCarPage.goToSearchCar();
         });
         step("Проверка перехода на страницу поиска автомобиля", () -> {
-            searchCarPage.verifyHeader();
+            searchCarPage.verifyHeader(searchCarPage.headerCarsSale, searchCarPage.textHeaderCarsSale);
         });
         step("Проверка поля 'Марка' на форме поиска", () -> {
             searchCarPage.verifyInputOnFormSearch(searchCarPage.inputTextBrand);
@@ -81,29 +70,39 @@ public class SearchCarTests extends TestBase{
 
     @Test
     @Owner("shkrebayv")
-    @DisplayName("Проверка формы поиска автомобиля")
-    void searchCarVerify() {
-        step("Открыть сайт drom.ru", () -> {
-            searchCarPage.openPage();
-        });
+    @DisplayName("Проверка поиска автомобиля по марке")
+    void searchCarbyBrandVerify() {
         step("Нажать 'Поиск объявлений'", () -> {
             searchCarPage.goToSearchCar();
         });
         step("Ввести в поле 'Марка' Mazda", () -> {
             searchCarPage.setValueToInput(searchCarPage.inputTextBrand, searchCarPage.inputValueBrandMazda, searchCarPage.commonListBrand);
-            sleep(5000);
         });
         step("Нажать кнопку 'Показать'", () -> {
-            searchCarPage.buttonClick(searchCarPage.buttonSubmit);
-            sleep(5000);
+            searchCarPage.buttonClick(searchCarPage.buttonSubmit, searchCarPage.buttonTextShow);
         });
-      //  step("Проверить, что найдены автомобили марки 'Mazda'", () -> {
-      //      searchCarPage.verifyBrandSearchResult(searchCarPage.foundCarName, searchCarPage.foundCarBrandMazda);
-
-       // });
-
-
+        step("Проверить, что все автомобили на странице марки 'Mazda'", () -> {
+            searchCarPage.verifySearchResult(searchCarPage.foundCarName, searchCarPage.foundCarBrandMazda);
+        });
     }
 
+    @Test
+    @Owner("shkrebayv")
+    @DisplayName("Проверка поиска новых автомобилей")
+    void searchNewCarVerify() {
+        step("Нажать 'Поиск объявлений'", () -> {
+            searchCarPage.goToSearchCar();
+        });
+        step("Нажать на 'Новые автомобили'", () -> {
+            searchCarPage.buttonClick(searchCarPage.newCarClick, searchCarPage.textNewCar);
+            sleep(5000);
+        });
+        step("Проверить заголовок страницы 'Продажа новых автомобилей'", () -> {
+            searchCarPage.verifyHeader(searchCarPage.headerNewCarsSale, searchCarPage.textHeaderNewCarsSale);
+        });
+        step("Проверить у всех найденных автомобилей отметка 'Новый'", () -> {
+            searchCarPage.verifySearchResult(searchCarPage.foundNewCar, searchCarPage.textFoundNewCar);
+        });
+    }
 
 }
