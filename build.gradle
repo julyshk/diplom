@@ -50,23 +50,13 @@ dependencies {
             'io.qameta.allure:allure-junit5:2.12.1',
             'io.qameta.allure:allure-java-commons:2.12.1'
     )
+    testRuntimeOnly(
+            "org.slf4j:slf4j-simple:1.7.29")
 }
 
 compileJava{
     options.encoding="UTF-8"
 }
-
-/*tasks.withType(Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform()
-
-    testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
-    }
-}*/
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -75,16 +65,11 @@ tasks.withType(JavaCompile) {
 test {
     useJUnitPlatform()
 }
-task remote_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("remote")
-    }
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
 }
 
-task remote_properties_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("remote_properties")
-    }
-}
 
 
