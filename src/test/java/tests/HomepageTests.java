@@ -13,9 +13,6 @@ public class HomepageTests extends TestBase {
     @Owner("shkrebayv")
     @DisplayName("Проверка списка популярных марок автомобилей")
     void checkForSectionServicesForApplicants() {
-        step("Установить регион Москва", () -> {
-            homepagePage.homeRegionChange();
-        });
         step("Проверить список популярных марок автомобилей", () -> {
             homepagePage.carBrandCheck(homepagePage.audi);
             homepagePage.carBrandCheck(homepagePage.geely);
@@ -29,7 +26,7 @@ public class HomepageTests extends TestBase {
             homepagePage.carBrandCheck(homepagePage.hyundai);
             homepagePage.carBrandCheck(homepagePage.nissan);
             homepagePage.carBrandCheck(homepagePage.volvo);
-            homepagePage.carBrandCheck(homepagePage.exeed);
+            homepagePage.carBrandCheck(homepagePage.landRover);
             homepagePage.carBrandCheck(homepagePage.kia);
             homepagePage.carBrandCheck(homepagePage.renault);
             homepagePage.carBrandCheck(homepagePage.lada);
@@ -72,9 +69,6 @@ public class HomepageTests extends TestBase {
     @ParameterizedTest(name = "При выборе марки {0} в поиске отображаются авто марки {1}")
     @CsvFileSource(resources = "/csv/carBrands.csv")
     public void searchCarByBrand(String searchBrand, String carBrand) {
-        step("Установить регион Москва", () -> {
-            homepagePage.homeRegionChange();
-        });
         step("Нажать на марку автомобиля на главном экране в секции 'Поиск объявлений'", () -> {
             homepagePage.goToChapter(homepagePage.brands, searchBrand);
         });

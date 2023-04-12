@@ -12,13 +12,15 @@ import pages.SearchCarPage;
 import static config.WebDriverProvider.setConfig;
 
 public class TestBase {
-    HomepagePage homepagePage = new HomepagePage();
+    public static HomepagePage homepagePage = new HomepagePage();
     SearchCarPage searchCarPage = new SearchCarPage();
 
 
     @BeforeAll
     static void beforeAll() {
         setConfig();
+        homepagePage.openPage();
+        homepagePage.homeRegionChange();
     }
 
 

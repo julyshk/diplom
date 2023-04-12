@@ -19,7 +19,7 @@ public class HomepagePage {
             hyundai = "Hyundai",
             nissan = "Nissan",
             volvo = "Volvo",
-            exeed = "Exeed",
+            landRover = "Land Rover",
             kia = "Kia",
             renault = "Renault",
             lada = "Лада",
