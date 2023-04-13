@@ -69,7 +69,7 @@ allure serve build/allure-results
 ###  Тесты
 
 <p align="center">
-<img title="Allure Tests" src="images/screens/allure_2.png">
+<img title="Allure Tests" src="images/screens/allure2.png">
 </p>
 
 
