@@ -6,7 +6,6 @@
 - Запуск тестов
 - Allure-отчет
 - Интеграция с Allure TestOps
-- Уведомление в Telegram о результатах прогона тестов
 - Видео пример прохождения тестов
 
 ## :computer: Технологии и инструменты
@@ -82,13 +81,6 @@ allure serve build/allure-results
 ### Dashboard с общими результатами тестирования
 <p align="center">
 <img title="Allure Graphics" src="images/screens/testops_dashboard.png">
-</p>
-
-
-## <img src="images/logo/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram о результатах прогона тестов
-
-<p align="center">
-<img title="Allure Overview Dashboard" src="images/screens/telegram.png" >
 </p>
 
 ## <img src="images/logo/Selenoid.svg" width="25" height="25"  alt="Allure"/></a> Видео прохождения тестов
