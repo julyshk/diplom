@@ -2,6 +2,8 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import config.WebDriverProvider;
+
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -48,7 +50,7 @@ public class HomepagePage {
             regionSearch = $$("a.b-link.regionLink");
 
     public HomepagePage openPage() {
-        open("https://drom.ru");
+        open(WebDriverProvider.config.getBaseUrl());
 
         return this;
     }

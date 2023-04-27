@@ -1,7 +1,10 @@
 package helpers;
 
 import com.codeborne.selenide.Selenide;
+import config.BrowserstackConfig;
 import io.qameta.allure.Attachment;
+import io.qameta.allure.restassured.AllureRestAssured;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -11,6 +14,8 @@ import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selenide.sessionId;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static io.restassured.RestAssured.given;
+import static java.lang.String.format;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
@@ -36,12 +41,12 @@ public class Attach {
         );
     }
 
-   // @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
-    //public static String addVideo() {
-      //  return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
-       //         + getVideoUrl()
-        //        + "' type='video/mp4'></video></body></html>";
-    //}
+    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    public static String addVideo() {
+        return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
+                + getVideoUrl()
+                + "' type='video/mp4'></video></body></html>";
+    }
 
     public static URL getVideoUrl() {
         String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
@@ -52,4 +57,26 @@ public class Attach {
         }
         return null;
     }
+
+    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    public static String addVideo(String sessionId) {
+        return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
+                + getVideoUrl(sessionId)
+                + "' type='video/mp4'></video></body></html>";
+    }
+
+    public static String getVideoUrl(String sessionId) {
+        BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
+        String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
+
+        return given()
+                .filter(new AllureRestAssured())
+                .auth().basic(config.getUser(), config.getKey())
+                .when()
+                .get(url)
+                .then()
+                .statusCode(200)
+                .extract().path("automation_session.video_url");
+    }
+
 }
