@@ -14,6 +14,7 @@ import pages.MainscreenPage;
 import pages.MenuPage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static helpers.Attach.getSessionId;
 import static helpers.Attach.pageSource;
 //import static helpers.Attach.pageSource;
 
@@ -46,10 +47,12 @@ public class TestBase {
     @AfterEach
     void afterEach() {
         String deviceHost = System.getProperty("deviceHost");
+        String sessionId = getSessionId();
         pageSource();
         closeWebDriver();
         if (deviceHost.equals("mobile_browserstack")) {
-            Attach.addVideo(sessionId().toString());
+            //Attach.addVideo(sessionId().toString());
+            Attach.addVideo(sessionId);
         }
         closeWebDriver();
     }

@@ -7,6 +7,7 @@ import io.qameta.allure.restassured.AllureRestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -77,6 +78,9 @@ public class Attach {
                 .then()
                 .statusCode(200)
                 .extract().path("automation_session.video_url");
+    }
+    public static String getSessionId() {
+        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 
 }
