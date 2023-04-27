@@ -1,4 +1,4 @@
-package tests;
+package tests.web;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
@@ -32,9 +32,9 @@ public class TestBase {
 
     @AfterEach
     void addAttachments(){
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
+      //  Attach.screenshotAs("Last screenshot");
+    //    Attach.pageSource();
+     //   Attach.browserConsoleLogs();
+      //  Attach.addVideo();
     }
 }

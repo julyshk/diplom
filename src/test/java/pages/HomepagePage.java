@@ -47,8 +47,6 @@ public class HomepagePage {
             foundCarName = $$("span[data-ftid=bull_title]"),
             regionSearch = $$("a.b-link.regionLink");
 
-
-
     public HomepagePage openPage() {
         open("https://drom.ru");
 
@@ -59,7 +57,6 @@ public class HomepagePage {
         homeRegionChange.click();
         regionSearch.find(text(regionMoscow)).click();
         homepagesButton.click();
-
 
         return this;
     }
@@ -92,6 +89,4 @@ public class HomepagePage {
 
         return this;
     }
-
-
 }

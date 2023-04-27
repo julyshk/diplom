@@ -1,16 +1,19 @@
-package tests;
+package tests.web;
 
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+
 import static io.qameta.allure.Allure.step;
 
 public class HomepageTests extends TestBase {
 
     @Test
     @Owner("shkrebayv")
+    @Tag("web")
     @DisplayName("Проверка списка популярных марок автомобилей")
     void checkForSectionServicesForApplicants() {
         step("Проверить список популярных марок автомобилей", () -> {
@@ -38,6 +41,7 @@ public class HomepageTests extends TestBase {
 
     @Test
     @Owner("shkrebayv")
+    @Tag("web")
     @DisplayName("Классификация автомобилей в секции 'Новые автомобили от дилеров'")
     void checkForSectionEducationAndConsultations() {
         step("Отображение раздела автомобилей эконом-класса", () -> {
@@ -54,6 +58,8 @@ public class HomepageTests extends TestBase {
         });
     }
 
+    @Owner("shkrebayv")
+    @Tag("web")
     @ParameterizedTest(name = "При переходе в раздел {0} должен быть заголовок {1}")
     @CsvFileSource(resources = "/csv/menuChapter.csv")
     public void MainMenuCheck(String chapter, String header) {
@@ -63,9 +69,10 @@ public class HomepageTests extends TestBase {
         step("Проверить заголовок страницы", () -> {
             homepagePage.verifyHeaderForChapter(header);
         });
-
     }
 
+    @Owner("shkrebayv")
+    @Tag("web")
     @ParameterizedTest(name = "При выборе марки {0} в поиске отображаются авто марки {1}")
     @CsvFileSource(resources = "/csv/carBrands.csv")
     public void searchCarByBrand(String searchBrand, String carBrand) {
@@ -76,6 +83,5 @@ public class HomepageTests extends TestBase {
             homepagePage.verifySearchCarByBrand(homepagePage.foundCarName, carBrand);
         });
     }
-
 }
 

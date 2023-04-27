@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -42,13 +43,6 @@ public class SearchCarPage {
             buttonOnFormSearch = $$("button[data-ftid=component_select_button]"),
             foundCarName = $$("span[data-ftid=bull_title]"),
             foundNewCar = $$("a[data-ftid=bulls-list_bull]");
-
-
-    public SearchCarPage openPage() {
-        open("https://drom.ru");
-
-        return this;
-    }
 
     public SearchCarPage goToSearchCar() {
         $$("a").find((text(searchAds))).click();

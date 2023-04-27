@@ -1,15 +1,18 @@
-package tests;
+package tests.web;
 
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class SearchCarTests extends TestBase{
+public class SearchCarTests extends TestBase {
 
     @Test
     @Owner("shkrebayv")
+    @Tag("web")
     @DisplayName("Проверка формы поиска автомобиля")
     void formForSearchCarVerify() {
         step("Нажать 'Поиск объявлений'", () -> {
@@ -70,6 +73,7 @@ public class SearchCarTests extends TestBase{
 
     @Test
     @Owner("shkrebayv")
+    @Tag("web")
     @DisplayName("Проверка поиска автомобиля по марке")
     void searchCarbyBrandVerify() {
         step("Нажать 'Поиск объявлений'", () -> {
@@ -88,6 +92,7 @@ public class SearchCarTests extends TestBase{
 
     @Test
     @Owner("shkrebayv")
+    @Tag("web")
     @DisplayName("Проверка поиска новых автомобилей")
     void searchNewCarVerify() {
         step("Нажать 'Поиск объявлений'", () -> {
@@ -104,5 +109,4 @@ public class SearchCarTests extends TestBase{
             searchCarPage.verifySearchResult(searchCarPage.foundNewCar, searchCarPage.textFoundNewCar);
         });
     }
-
 }
