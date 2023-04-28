@@ -125,6 +125,7 @@ gradle clean api
 ```bash
 gradle clean mobile -DdeviceHost=emulator
 ```
+<a id="jenkins"></a>
 
 ###  Удаленный запуск (в Jenkins):
 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/017-July_Shk-jenkins_diplom/">проект</a>
@@ -173,7 +174,7 @@ gradle clean mobile -DdeviceHost=emulator
 ## <img src="images/logo/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram о результатах прогона тестов
 
 <p align="center">
-<img title="Allure Overview Dashboard" src="images/screens/telegram.jpeg" >
+<img title="Telegram" src="images/screens/telegram.jpeg" width="250" height="250" >
 </p>
 
 <a id="selenoidvideo"></a>
