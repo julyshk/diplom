@@ -19,7 +19,7 @@ public interface BrowserstackConfig extends Config {
     @Key("baseurl")
     String getBaseUrl();
 
-    @Key("version")
+    @Key("os_version")
     String getVersion();
 
     @Key("project")
