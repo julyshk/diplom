@@ -14,6 +14,7 @@ public class WebDriverProvider {
         Configuration.browser = WebDriverProvider.config.getBrowser();
         Configuration.browserVersion = WebDriverProvider.config.getVersion();
         Configuration.remote = WebDriverProvider.config.getRemoteURL();
+        Configuration.browserSize = WebDriverProvider.config.getBrowserSize();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         Configuration.browserCapabilities = capabilities;
