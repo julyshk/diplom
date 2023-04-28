@@ -1,4 +1,5 @@
 # Проект по автоматизации тестирования сайта <a href="https://drom.ru.ru/">Drom.ru</a></h1>
+<a href="https://drom.ru.ru/"><img src="images/logo/drom.png" alt="Drom.ru"/></a>
 ## :receipt: Содержание:
 
 * <a href="#description">Описание</a>
