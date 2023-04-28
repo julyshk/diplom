@@ -174,7 +174,7 @@ gradle clean mobile -DdeviceHost=emulator
 ## <img src="images/logo/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram о результатах прогона тестов
 
 <p align="center">
-<img title="Telegram" src="images/screens/telegram.jpeg" width="250" height="250" >
+<img title="Telegram" src="images/screens/telegram.jpeg" width="400" >
 </p>
 
 <a id="selenoidvideo"></a>
