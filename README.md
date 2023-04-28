@@ -127,7 +127,7 @@ gradle clean mobile -DdeviceHost=emulator
 ```
 <a id="jenkins"></a>
 
-###  Удаленный запуск (в Jenkins):
+###  <img src="images/logo/Jenkins.svg"/><a> Удаленный запуск (в Jenkins): </a>
 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/017-July_Shk-jenkins_diplom/">проект</a>
 
 ![This is an image](/images/screens/jenkins.png)
