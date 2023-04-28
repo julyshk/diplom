@@ -1,7 +1,6 @@
 package tests.web;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.WebDriverProvider;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -11,13 +10,11 @@ import pages.HomepagePage;
 import pages.SearchCarPage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
 import static config.WebDriverProvider.setConfig;
 
 public class TestBase {
     public static HomepagePage homepagePage = new HomepagePage();
     SearchCarPage searchCarPage = new SearchCarPage();
-
 
     @BeforeAll
     static void beforeAll() {
@@ -26,15 +23,14 @@ public class TestBase {
         homepagePage.homeRegionChange();
     }
 
-
     @BeforeEach
-    void addListener(){
+    void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         homepagePage.openPage();
     }
 
     @AfterEach
-    void addAttachments(){
+    void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();

@@ -79,6 +79,7 @@ public class Attach {
                 .statusCode(200)
                 .extract().path("automation_session.video_url");
     }
+
     public static String getSessionId() {
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
