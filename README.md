@@ -39,10 +39,10 @@
 <a href="https://www.jenkins.io/"><img src="images/logo/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a>
 <a href="https://https://telegram.org/"><img src="images/logo/Telegram.svg" width="50" height="50"  alt="Telegram"/></a>
 <a href="https://rest-assured.io/"><img src="images/logo/RestAssured.png" width="50" height="50"  alt="Rest Assured"/></a>
-<a href="https://developer.android.com/studio/"><img src="AndroidStudio.svg" width="50" height="50"  alt="Android Studio"/></a>
-<a href="http://appium.io/"><img src="Appium.svg" width="50" height="50"  alt="Appium"/></a>
-<a href="http://appium.io/"><img src="Inspector.png" width="50" height="50"  alt="Appium Inspector"/></a>
-<a href="https://www.browserstack.com/"><img src="Browserstack.svg" width="50" height="50"  alt="Browserstack"/></a>
+<a href="https://developer.android.com/studio/"><img src="images/logo/AndroidStudio.svg" width="50" height="50"  alt="Android Studio"/></a>
+<a href="http://appium.io/"><img src="images/logo/Appium.svg" width="50" height="50"  alt="Appium"/></a>
+<a href="http://appium.io/"><img src="images/logo/Inspector.png" width="50" height="50"  alt="Appium Inspector"/></a>
+<a href="https://www.browserstack.com/"><img src="images/logo/Browserstack.svg" width="50" height="50"  alt="Browserstack"/></a>
 </p>
 
 Автотесты написаны на <code>Java</code> с использованием <code>JUnit 5</code> и <code>Gradle</code>, применены различные
