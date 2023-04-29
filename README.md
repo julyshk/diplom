@@ -148,7 +148,7 @@ gradle clean mobile -DdeviceHost=emulator
 
 <a id="allure"></a>
 
-## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/017-July_Shk-jenkins_diplom_web/8/allure/">Allure report</a>
+## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/017-July_Shk-jenkins_diplom/18/allure/">Allure report</a>
 
 ###  Главное окно
 
@@ -164,7 +164,7 @@ gradle clean mobile -DdeviceHost=emulator
 
 <a id="testops"></a>
 
-## <img src="images/logo/Allure_TO.svg" width="25" height="25"  alt="Allure"/></a> Интеграция с <a target="_blank" href="https://allure.autotests.cloud/launch/22930">Allure TestOps</a>
+## <img src="images/logo/Allure_TO.svg" width="25" height="25"  alt="Allure"/></a> Интеграция с <a target="_blank" href="https://allure.autotests.cloud/launch/22968">Allure TestOps</a>
 ### Общий список всех кейсов
 <p align="center">
 <img title="Allure Graphics" src="images/screens/testops_tests.png">
