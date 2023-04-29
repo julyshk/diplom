@@ -28,7 +28,7 @@ public class HomepageTests extends TestBase {
             homepagePage.carBrandCheck(homepagePage.chery);
             homepagePage.carBrandCheck(homepagePage.hyundai);
             homepagePage.carBrandCheck(homepagePage.nissan);
-            homepagePage.carBrandCheck(homepagePage.volvo);
+            homepagePage.carBrandCheck(homepagePage.omoda);
             homepagePage.carBrandCheck(homepagePage.landRover);
             homepagePage.carBrandCheck(homepagePage.kia);
             homepagePage.carBrandCheck(homepagePage.renault);

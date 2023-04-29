@@ -20,7 +20,7 @@ public class HomepagePage {
             chery = "Chery",
             hyundai = "Hyundai",
             nissan = "Nissan",
-            volvo = "Volvo",
+            omoda = "OMODA",
             landRover = "Land Rover",
             kia = "Kia",
             renault = "Renault",

@@ -2,7 +2,7 @@
 <a href="https://drom.ru/"><img src="images/logo/drom.png" alt="Drom.ru"/></a>
 </p>
 <h1  align="center">
-Проект по автоматизации тестирования <a href="https://drom.ru.ru/">Drom.ru</a>
+Проект по автоматизации тестирования <a href="https://drom.ru/">Drom.ru</a>
 </h1>
 
 ## :receipt: Содержание:
