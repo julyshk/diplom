@@ -33,19 +33,4 @@ public class SpecDrom {
             .log().body()
             .contentType(JSON)
             .baseUri("https://www.drom.ru");
-
-    public static RequestSpecification requestSpecDelete = with()
-            .filter(withCustomTemplates())
-            .log().uri()
-            .log().headers()
-            .log().body()
-            .contentType(JSON)
-            .baseUri("https://reqres.in")
-            .basePath("/api");
-
-    public static ResponseSpecification responseSpecDelete = new ResponseSpecBuilder()
-            .log(STATUS)
-            .log(BODY)
-            .expectStatusCode(204)
-            .build();
 }
